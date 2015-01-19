@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+  sourceSets {
+    main {
+      manifest.srcFile 'Android-PullToRefresh/library/AndroidManifest.xml'
+      java.srcDirs = ['Android-PullToRefresh/library/src']
+      res.srcDirs = ['Android-PullToRefresh/library/res']
+    }
+  }
+
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  lintOptions {
+    abortOnError false
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  compile libs.supportV4
+}
+
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light" />
+  <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
+
+  <!-- Immediate parent theme to specify base values for custom attributes -->
+  <style name="Theme" parent="FrameworkRoot.Theme">
+  </style>
+
+  <style name="Theme.Laputapp.Base" parent="Theme">
+  </style>
+
+  <style name="Theme.Laputapp" parent="Theme.Laputapp.Base" />
+
+  <style name="Theme.Laputapp.NoTitleBar" parent="Theme.Laputapp.Base">
+    <item name="windowActionBar">false</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+</resources>

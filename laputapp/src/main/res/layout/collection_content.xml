@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:id="@+id/progressContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <ProgressBar
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+
+  </LinearLayout>
+
+  <FrameLayout
+    android:id="@+id/listContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.laputa.widget.CollectionView
+      android:id="@android:id/list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+    <!--
+    <com.laputapp.widget.CollectionView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/collection_view_padding"
+        android:paddingLeft="@dimen/collection_view_padding"
+        android:paddingRight="@dimen/collection_view_padding"
+        android:scrollbarStyle="outsideOverlay"
+        app:internalPadding="@dimen/collection_view_padding" />
+    -->
+
+    <TextView
+      android:id="@android:id/empty"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:paddingTop="?android:actionBarSize"
+      android:visibility="gone" />
+
+  </FrameLayout>
+
+</FrameLayout>
