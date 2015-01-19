@@ -1,6 +1,4 @@
-include ':laputapp', ':laputapp-baidupush'
+include ':laputapp'
 include ':laputapp-http'
-include ':laputapp-samples'
-include ':laputapp-cache'
 include ':laputapp-pulltorefresh'
-include ':laputapp-umeng'
+include ':laputapp-samples'
