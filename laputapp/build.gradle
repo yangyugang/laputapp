@@ -10,6 +10,11 @@ android {
     versionCode 1
     versionName "1.0"
   }
+
+  lintOptions {
+    abortOnError false
+  }
+
   buildTypes {
     release {
       minifyEnabled false
@@ -18,8 +23,14 @@ android {
   }
 }
 
+repositories {
+  maven {url "${System.env.HOME}/.m2/repository"}
+}
+
 dependencies {
   compile libs.appcompatV7
 
-  compile project(':laputapp-http')
+  compile 'com.laputapp:laputapp-http:1.0.0'
 }
+
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
