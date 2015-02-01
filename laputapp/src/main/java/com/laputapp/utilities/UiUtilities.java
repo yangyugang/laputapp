@@ -5,6 +5,7 @@
 package com.laputapp.utilities;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -14,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ListView;
 
 public final class UiUtilities {
 
@@ -56,6 +58,10 @@ public final class UiUtilities {
 
   public static boolean hasHoneycombMR1() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
+  }
+
+  public static boolean hasJellyBean() {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
   }
 
   public static boolean hasJellyBeanMR1() {
@@ -127,7 +133,7 @@ public final class UiUtilities {
   @SuppressWarnings("deprecation")
   @SuppressLint("NewApi")
   public static void setBackgroundCompat(View view, Drawable drawable) {
-    if (Build.VERSION.SDK_INT >= 16) {
+    if (hasJellyBean()) {
       view.setBackground(drawable);
     } else {
       view.setBackgroundDrawable(drawable);
@@ -141,6 +147,37 @@ public final class UiUtilities {
     TypedValue outValue = new TypedValue();
     theme.resolveAttribute(attributeResId, outValue, true);
     return outValue.resourceId;
+  }
+
+  @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+  public static boolean isRtl(final Context context) {
+    if (hasJellyBeanMR1()) {
+      return context.getResources().getConfiguration().getLayoutDirection()
+          == View.LAYOUT_DIRECTION_RTL;
+    }
+    return false;
+  }
+
+  /**
+   * Returns a boolean indicating whether or not the view's layout direction is RTL
+   *
+   * @param view - A valid view
+   * @return True if the view's layout direction is RTL
+   */
+  @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+  public static boolean isViewLayoutRtl(View view) {
+    if (hasJellyBeanMR1()) {
+      return view.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+    }
+    return false;
+  }
+
+  public static void setStartPadding(final Context context, View view, int padding) {
+    if (isRtl(context)) {
+      view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), padding, view.getPaddingBottom());
+    } else {
+      view.setPadding(padding, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
+    }
   }
 
 }

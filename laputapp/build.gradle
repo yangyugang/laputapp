@@ -23,9 +23,9 @@ android {
   }
 }
 
-repositories {
-  maven {url "${System.env.HOME}/.m2/repository"}
-}
+//repositories {
+//  maven {url "${System.env.HOME}/.m2/repository"}
+//}
 
 dependencies {
   compile libs.appcompatV7
