@@ -22,6 +22,12 @@ public class BaseActivity extends AnalyticsActivity {
   @Override protected void onDestroy() {
     super.onDestroy();
     ButterKnife.reset(this);
+
+    // http://blog.csdn.net/lonelyroamer/article/details/7536962
+    if (isProgressShow() && mProgressLoading != null) {
+      dismissProgressLoading();
+      mProgressLoading = null;
+    }
   }
 
   /**
