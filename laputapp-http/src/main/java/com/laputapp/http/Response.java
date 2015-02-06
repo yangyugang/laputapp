@@ -23,7 +23,7 @@ public class Response<T> extends ExtendedObject implements Serializable {
   /**
    * 返回的错误码、0代表成功
    */
-  public int mCode;
+  @SerializedName("code") public int mCode;
 
   /**
    * 提示信息
