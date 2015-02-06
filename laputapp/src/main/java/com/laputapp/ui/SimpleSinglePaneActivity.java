@@ -18,7 +18,7 @@ package com.laputapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import com.laputapp.R;
 
 /**
@@ -44,11 +44,11 @@ public abstract class SimpleSinglePaneActivity extends BaseActivity {
         if (savedInstanceState == null) {
             mFragment = onCreatePane();
             mFragment.setArguments(intentToFragmentArguments(getIntent()));
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.root_container, mFragment, "single_pane")
                     .commit();
         } else {
-            mFragment = getFragmentManager().findFragmentByTag("single_pane");
+            mFragment = getSupportFragmentManager().findFragmentByTag("single_pane");
         }
     }
 

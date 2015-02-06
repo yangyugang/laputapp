@@ -13,11 +13,12 @@ import retrofit.client.Header;
  * http请求返回数据
  * @param <T>
  */
-public class Response<T> implements Serializable {
+public class Response<T> extends ExtendedObject implements Serializable {
 
   int mStatus;
   String mReason;
   List<Header> mHeaders;
+  retrofit.client.Response mResponse;
 
   /**
    * 返回的错误码、0代表成功
@@ -70,5 +71,9 @@ public class Response<T> implements Serializable {
   /** An unmodifiable collection of headers. */
   public List<Header> getHeaders() {
     return mHeaders;
+  }
+
+  public retrofit.client.Response getResponse() {
+    return mResponse;
   }
 }

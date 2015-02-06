@@ -8,7 +8,7 @@ import retrofit.RetrofitError;
 
 public class Callbacks {
 
-  public interface RequestCallback<T> {
+  public static interface RequestCallback<T> {
     public void onRequestComplete(Response<T> response);
     public void onRequestFailure(Response<T> response);
     public void onRequestFailure(RetrofitError error);
@@ -21,7 +21,7 @@ public class Callbacks {
     public void onCacheLoaded(T localData);
   }
 
-  public class ApiBaseCallback<T> implements RequestCallback<T> {
+  public static class ApiBaseCallback<T> implements RequestCallback<T> {
     @Override public void onRequestComplete(Response<T> response) {}
     @Override public void onRequestFailure(Response<T> response) {}
     @Override public void onRequestFailure(RetrofitError error) {}

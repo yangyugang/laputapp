@@ -6,11 +6,11 @@ package com.laputapp.http;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
-public class EmptyCallback<T> implements Callback<T> {
+public class EmptyCallback<T> implements Callback<Response<T>> {
 
-  @Override public void success(T t, Response response) {
+  @Override public void success(Response<T> tResponse,
+      retrofit.client.Response response) {
   }
 
   @Override public void failure(RetrofitError error) {

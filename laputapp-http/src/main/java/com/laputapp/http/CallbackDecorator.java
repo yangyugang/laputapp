@@ -6,11 +6,11 @@ package com.laputapp.http;
 
 import retrofit.RetrofitError;
 
-public class CallbackDecoration<T> implements retrofit.Callback<Response<T>> {
+public class CallbackDecorator<T> implements retrofit.Callback<Response<T>> {
 
   protected final Callbacks.RequestCallback<T> mRequestCallback;
 
-  public CallbackDecoration(Callbacks.RequestCallback<T> requestCallback) {
+  public CallbackDecorator(Callbacks.RequestCallback<T> requestCallback) {
     mRequestCallback = requestCallback;
   }
 
@@ -18,6 +18,7 @@ public class CallbackDecoration<T> implements retrofit.Callback<Response<T>> {
     if (mRequestCallback == null) return;
 
     // response value
+    result.mResponse = response;
     result.mStatus = response.getStatus();
     result.mReason = response.getReason();
     result.mHeaders = response.getHeaders();

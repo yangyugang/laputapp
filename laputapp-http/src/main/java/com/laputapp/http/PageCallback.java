@@ -6,7 +6,7 @@ package com.laputapp.http;
 
 import java.util.ArrayList;
 
-public abstract class PageCallback<T> extends CallbackDecoration<ArrayList<T>> {
+public abstract class PageCallback<T> extends CallbackDecorator<ArrayList<T>> {
 
   public PageCallback(Callbacks.RequestCallback<ArrayList<T>> requestCallback) {
     super(requestCallback);
