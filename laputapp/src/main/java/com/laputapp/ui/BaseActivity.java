@@ -11,12 +11,26 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
+import butterknife.ButterKnife;
 import com.laputapp.R;
 import com.laputapp.analytics.AnalyticsActivity;
 import com.laputapp.utilities.InputMethodUtils;
 import com.laputapp.widget.ProgressLoading;
 
 public class BaseActivity extends AnalyticsActivity {
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+    ButterKnife.reset(this);
+  }
+
+  /**
+   * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
+   * value.
+   */
+  private void injectViews() {
+    ButterKnife.inject(this);
+  }
 
   private ProgressLoading mProgressLoading;
   private ProgressLoading mUnBackProgressLoading;
@@ -50,7 +64,7 @@ public class BaseActivity extends AnalyticsActivity {
   }
 
   public void dismissProgressLoading() {
-    if (mProgressLoading != null) {
+    if (mProgressLoading != null && !isFinishing()) {
       progressShow = false;
       mProgressLoading.dismiss();
     }
@@ -78,7 +92,7 @@ public class BaseActivity extends AnalyticsActivity {
   }
 
   public void dismissUnBackProgressLoading() {
-    if (mUnBackProgressLoading != null) {
+    if (mUnBackProgressLoading != null && !isFinishing()) {
       mUnBackProgressLoading.dismiss();
     }
   }

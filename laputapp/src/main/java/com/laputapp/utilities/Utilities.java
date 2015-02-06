@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 
 public final class Utilities {
 
@@ -36,6 +38,30 @@ public final class Utilities {
 
     }
     return value;
+  }
+
+  /**
+   * Validate the email
+   * @param email
+   * @return
+   */
+  public static boolean isEmailValid(String email) {
+    if (Strings.isBlank(email))
+      return false;
+
+    return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+  }
+
+  /**
+   * Validate the mobile
+   * @param mobile
+   * @return
+   */
+  public static boolean isMobileValid(String mobile) {
+    if (Strings.isBlank(mobile))
+      return false;
+
+    return Patterns.PHONE.matcher(mobile).matches();
   }
 
 }
