@@ -7,6 +7,5 @@ package com.laputapp.model;
 import com.laputapp.http.ExtendedObject;
 
 public abstract class BaseModel extends ExtendedObject {
-
-  public int id;
+  public String id;
 }

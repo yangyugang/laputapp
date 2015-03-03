@@ -8,16 +8,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AccountParams extends RequestParams {
 
-  @SerializedName("account_id") public int mAccountId;
+  @SerializedName("account_id") public String mAccountId;
   @SerializedName("token") public String mToken;
 
   public AccountParams() {}
 
-  public AccountParams(int accountId) {
-    this.mAccountId = accountId;
+  public AccountParams(String accountId) {
+    mAccountId = accountId;
   }
 
-  public AccountParams(int accountId, String token) {
+  public AccountParams(String accountId, String token) {
     mAccountId = accountId;
     mToken = token;
   }

@@ -4,8 +4,5 @@
  */
 package com.laputapp.http;
 
-import java.io.Serializable;
-
-public class RequestParams implements Serializable {
-
+public class RequestParams extends ExtendedObject {
 }

@@ -9,7 +9,7 @@ public class Account extends BaseModel {
   public String phone;
   public String token;
 
-  public int getId() {
+  public String getId() {
     return id;
   }
 
