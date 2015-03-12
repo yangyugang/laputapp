@@ -13,7 +13,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.laputapp.widget.CollectionView;
 import com.laputapp.widget.PullToRefreshCollectionView;
 
-public abstract class PullToRefreshListFragment extends BasePagedCollectionFragment
+public abstract class PullToRefreshListFragment<T> extends BasePagedCollectionFragment<T>
   implements PullToRefreshBase.OnRefreshListener {
 
   private PullToRefreshCollectionView mPullToRefreshListView;
