@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion 21
-  buildToolsVersion "21.1.2"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
 
   defaultConfig {
-    minSdkVersion 14
-    targetSdkVersion 21
-    versionCode 1
-    versionName "1.0"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+//    versionCode 1
+//    versionName "1.0"
   }
 
   lintOptions {
@@ -31,6 +31,7 @@ dependencies {
   compile libs.appcompatV7
   compile libs.butterknife
 
+  compile 'com.laputapp:laputapp-pulltorefresh:2.1.1'
   compile 'com.laputapp:laputapp-http:1.0.3'
 }
 
