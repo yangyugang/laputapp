@@ -58,7 +58,7 @@ public class CollectionView extends ListView {
 
     public CollectionView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setAdapter(new MyListAdapter());
+        //setAdapter(new MyListAdapter());
         setDivider(null);
         setDividerHeight(0);
         setItemsCanFocus(false);
