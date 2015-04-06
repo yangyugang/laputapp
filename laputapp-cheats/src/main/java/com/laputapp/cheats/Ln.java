@@ -26,7 +26,7 @@ import android.util.Log;
  *
  * Convenience class for logging. Logs the given parameters plus the calling class and line as a tag and the calling method's name
  */
-public class L {
+public class Ln {
 
   public static void v(Throwable t) {
     log(Log.VERBOSE, t, null);
