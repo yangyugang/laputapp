@@ -5,7 +5,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:1.0.1'
+    classpath 'com.android.tools.build:gradle:1.1.0'
 
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
@@ -22,13 +22,13 @@ allprojects {
 Shared gradle properties
  */
 ext {
-  compileSdkVersion = 21
-  buildToolsVersion = "21.1.2"
+  compileSdkVersion = 22
+  buildToolsVersion = "22.0.1"
 
   minSdkVersion = 14
-  targetSdkVersion = 21
+  targetSdkVersion = 22
 
-  supportVersion      = '21.0.3'
+  supportVersion      = '22.0.0'
   daggerVersion       = '1.2.2'
   okhttpVersion       = '2.2.0'
   retrofitVersion     = '1.8.0'

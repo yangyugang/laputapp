@@ -170,6 +170,10 @@ public class DataLoader<T> extends PageCallback<T> {
     return mResources.size();
   }
 
+  public long getTotalSize() {
+    return mTotalSize;
+  }
+
   public boolean canLoadMore() {
     return !mIsLoading && hasMore();
   }
